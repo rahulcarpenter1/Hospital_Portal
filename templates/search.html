@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Hospital Portal</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body data-bs-theme="dark">
+    <header>
+        <h1 class="text-center pt-3 display-1" style="font-family: Edu NSW ACT Hand Pre, cursive;">Hospital Portal</h1>
+        <h3 class="mx-4 mt-3">Finding Result Of : {{query}}</h3>
+    </header>
+    {% if patient %}
+    <div class="table1 mt-5 px-4">
+        <table class="table table-bordered table-danger">
+    <thead>
+        <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Patient Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Admit</th>
+        <th scope="col">Case</th>
+        <th scope="col">Reffer</th>
+        <th scope="col">Scheme</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in patient %}
+        
+        
+        <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>PSAK2T{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.admit}}</td>
+        <td>{{i.case}}</td>
+        <td>{{i.refer}}</td>
+        <td>{{i.scheme}}</td>
+        <td>{{i.status}}</td>
+        <td>
+            <a href="{% url "update" i.id %}" class="btn btn-success">Edit</a>
+            <a href="{% url "delete" i.id %}" onclick="return confirm('Are you sure to Delete This Patient?');" class="btn btn-danger">Delete</a>
+        </td>
+
+        </tr>
+
+        {% endfor %}
+    </tbody>
+    </table>
+        </div>
+        {% else %}
+        <h2 class="alert alert-danger mt-5 mx-4">No Result Found</h2>
+    {% endif %}
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+</body>
+</html>
