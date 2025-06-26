@@ -16,3 +16,26 @@
     margin: 8px 60px;
     color: white;
 }
+@media (min-width:320px) and (max-width:576px) {
+    .table1{
+        overflow-x: scroll;
+    }
+    .table .hide{
+        display: none;
+    }
+    .search{
+        flex-direction: column;
+        gap: 20px;
+        padding: 0px !important;
+        margin-top: 35px;
+    }
+    .info{
+    margin: 10px 0;
+    }
+    .info3{
+        margin: 10px 0;
+    }
+    .info2{
+        margin: 10px 0;
+    }
+}

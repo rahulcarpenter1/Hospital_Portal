@@ -24,7 +24,7 @@
         <th scope="col">S.No.</th>
         <th scope="col">Patient Id</th>
         <th scope="col">Name</th>
-        <th scope="col">Admit</th>
+        <th scope="col" class="hide">Admit</th>
         <th scope="col">Case</th>
         <th scope="col">Reffer</th>
         <th scope="col">Scheme</th>
@@ -40,14 +40,14 @@
         <th scope="row">{{forloop.counter}}</th>
         <td>PSAK2T{{i.id}}</td>
         <td>{{i.name}}</td>
-        <td>{{i.admit}}</td>
+        <td class="hide">{{i.admit}}</td>
         <td>{{i.case}}</td>
         <td>{{i.refer}}</td>
         <td>{{i.scheme}}</td>
         <td>{{i.status}}</td>
         <td>
-            <a href="{% url "update" i.id %}" class="btn btn-success">Edit</a>
-            <a href="{% url "delete" i.id %}" onclick="return confirm('Are you sure to Delete This Patient?');" class="btn btn-danger">Delete</a>
+            <a href="{% url "update" i.id %}" class="btn btn-success mt-2">Edit</a>
+            <a href="{% url "delete" i.id %}" onclick="return confirm('Are you sure to Delete This Patient?');" class="btn btn-danger mt-2">Delete</a>
         </td>
 
         </tr>
